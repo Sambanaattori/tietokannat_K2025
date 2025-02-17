@@ -1,0 +1,40 @@
+
+//16.1 Tämä on taulukko, joka sisältää kirjoja ja niiden tietoja
+const bookData = [
+    {'name': "Everything You Ever Wanted to Know", 'author': "Upton", 'isbn': "082305649x"},
+    {'name': "Photography", 'author': "Vilppu", 'isbn': "205711499"},
+    {'name': "Drawing Manual Vilppu", 'author': "Zelanshi", 'isbn': "1892053039"},
+    {'name': "TBA", 'author': "Zelanshi", 'isbn': "0534613932"},
+    {'name': "Shaping Space", 'author': "Speight", 'isbn': "0534613934"},
+    {'name': "Art Since 1940", 'author': "Speight", 'isbn': "0131839780"},
+    {'name': "Make it in Clay", 'author': "Stokstad", 'isbn': "0076417011"},
+    {'name': "Art History Vol II & ala carte lab", 'author': "Stokstad", 'isbn': "205795617"},
+    {'name': "Accounting Concepts", 'author': "Albrecht", 'isbn': "1111287856"},
+    {'name': "Intermediate Accounting", 'author': "Stice", 'isbn': "0538479736"},
+    {'name': "Management Info Systems", 'author': "Marakas", 'isbn': "9780073376813"},
+    {'name': "Management", 'author': "Williams", 'isbn': "9780757524028"},
+    {'name': "Leadership Wisdom of Jesus", 'author': "Manz", 'isbn': "9781609940041"},
+    {'name': "Business Law Today", 'author': "Miller", 'isbn': "9780324786156"},
+    {'name': "Management Info Systems", 'author': "Marakas", 'isbn': "9780073376813"}
+];
+
+//16.2 Tämä kertoo mikä tietotyyppi bookData on
+console.log(typeof bookData);
+
+//16.3 Tämä tulostaa koko bookData taulukon tietoineen
+console.log(bookData); 
+
+//16.4 Tämä tulostaa bookData taulukon ensimmäisen rivin
+console.log(bookData[0]);
+
+//16.5 tämä tulostaa bookData taulukon ensimmäisen kirjan nimen
+console.log("Taulukon ensimmäisen kirjan nimi on "+bookData[0].name);
+
+//16.6 Tulosta konsolille arrayn rivien määrä
+console.log("Taulukossa on "+bookData.length+" riviä");
+
+//16.7 Tulostaa kaikkien kirjojen nimet
+for (let i=0; i<bookData.length; i++)
+{
+    console.log(bookData[i].name);
+}

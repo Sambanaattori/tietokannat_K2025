@@ -1,0 +1,19 @@
+//15.1
+setTimeout(doSomething,2000);
+function doSomething()
+{
+    console.log("Demonstrating the callbacks");
+}
+console.log("The application is started");
+
+//15.2
+setTimeout(function(){
+    console.log("Demonstrating the callbacks anonymously");
+},2500);
+console.log("The application is started anonymously");
+
+//15.3
+setTimeout(()=>{
+    console.log("Demonstrating the callbacks using arrow function");
+},3000) 
+console.log("The application is started using arrow function");
