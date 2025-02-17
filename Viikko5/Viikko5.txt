@@ -1,0 +1,47 @@
+DELIMITER $$
+
+CREATE PROCEDURE LisaaOpintosuoritus (
+    IN etunimi VARCHAR(50), 
+    IN sukunimi VARCHAR(50), 
+    IN kurssikoodi VARCHAR(20), 
+    IN arvosana INT
+)
+BEGIN
+    DECLARE opiskelija_id INT;
+    DECLARE kurssi_id INT;
+    
+    -- Check that the grade is between 0 and 5
+    IF arvosana < 0 OR arvosana > 5 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Arvosanan tulee olla välillä 0 - 5';
+    END IF;
+
+    -- Check if the student exists
+    SELECT idOpiskelija INTO opiskelija_id 
+    FROM Opiskelija 
+    WHERE Etunimi = etunimi AND Sukunimi = sukunimi 
+    LIMIT 1;
+
+    IF opiskelija_id IS NULL THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Opiskelijaa ei löytynyt';
+    END IF;
+
+    -- Check if the course exists
+    SELECT idKurssi INTO kurssi_id 
+    FROM Kurssi 
+    WHERE Kurssikoodi = kurssikoodi 
+    LIMIT 1;
+
+    IF kurssi_id IS NULL THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Kurssia ei löytynyt';
+    END IF;
+
+    -- Insert the course completion record
+    INSERT INTO Opintosuoritus (idOpiskelija, idKurssi, Arvosana, SuoritusPVM) 
+    VALUES (opiskelija_id, kurssi_id, arvosana, CURDATE());
+
+END $$
+
+DELIMITER ;

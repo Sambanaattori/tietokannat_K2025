@@ -1,0 +1,17 @@
+//kysytään käyttäjältä sana
+const readline = require('readline');
+const rl = readline.createInterface
+({
+    input: process.stdin,
+    output: process.stdout
+});
+
+//tarkistetaan onko sana palindromi
+rl.question('Kirjoita sana: ', (answer) => {
+    if (answer == answer.split('').reverse().join('')) {
+        console.log('Sana on palindromi');
+    } else {
+        console.log('Sana ei ole palindromi');
+    }
+    rl.close();
+});

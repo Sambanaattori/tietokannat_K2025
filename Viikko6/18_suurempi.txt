@@ -1,0 +1,24 @@
+prompt = require('prompt-sync')();
+isompiluku();
+
+function isompiluku()
+{
+    var x = parseFloat(prompt("Anna luku x: "));
+    var y = parseFloat(prompt("Anna luku y: "));
+
+    if (x>y)
+    {
+        console.log("Luku "+x+" on suurempi kuin luku "+y);
+    }
+    
+    if (x==y)
+    {
+        console.log("Luku "+x+" on yhtäsuuri kuin luku "+y);
+    }
+    
+    else
+    {
+        console.log("Luku "+y+" on suurempi kuin luku "+x);
+    }
+
+}
